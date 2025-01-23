@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_sales_people
+    description: "Dimension model for sales people including their related quotas and employee information"
+    columns:
+      - name: pk_fk_business_entity_sales_people_id
+        description: "Primary key of the sales person"
+        tests:
+          - not_null
+          - unique

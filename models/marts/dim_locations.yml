@@ -1,0 +1,75 @@
+version: 2
+
+models:
+  - name: dim_locations
+    description: "Dimension model for locations including country, state, city, and territory information"
+    columns:
+      - name: pk_address_id
+        description: "Primary key of the address"
+        tests:
+          - not_null
+          - unique
+      - name: pk_country_region
+        description: "Primary key of the country region"
+        tests:
+          - not_null
+      - name: pk_state_province_id
+        description: "Primary key of the state or province"
+        tests:
+          - not_null
+      - name: pk_territory_id
+        description: "Primary key of the sales territory"
+        tests:
+          - not_null
+      - name: nm_country
+        description: "Name of the country"
+        tests:
+          - not_null
+      - name: code_province
+        description: "Code of the state or province"
+        tests:
+          - not_null
+      - name: is_only_state
+        description: "Flag indicating if it is the only state in the country"
+        tests:
+          - not_null
+      - name: nm_state_province
+        description: "Name of the state or province"
+        tests:
+          - not_null
+      - name: city
+        description: "Name of the city"
+        tests:
+          - not_null
+      - name: modified_date_country_region
+        description: "Date the country region was last modified"
+        tests:
+          - not_null
+      - name: date_key_country_region
+        description: "Date key for the country region"
+        tests:
+          - not_null
+      - name: modified_date_state_province
+        description: "Date the state or province was last modified"
+        tests:
+          - not_null
+      - name: date_key_state_province
+        description: "Date key for the state or province"
+        tests:
+          - not_null
+      - name: modified_date_address
+        description: "Date the address was last modified"
+        tests:
+          - not_null
+      - name: date_key_address
+        description: "Date key for the address"
+        tests:
+          - not_null
+      - name: modified_date_territory
+        description: "Date the sales territory was last modified"
+        tests:
+          - not_null
+      - name: date_key_territory
+        description: "Date key for the sales territory"
+        tests:
+          - not_null

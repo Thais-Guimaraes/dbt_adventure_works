@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: dim_credit_cards
+    description: "Dimension model for credit cards, people credit cards, and people"
+    columns:
+      - name: pk_credit_card_id
+        description: "Primary key of the credit card"
+        tests:
+          - not_null
+          - unique
+      - name: card_type
+        description: "Type of the credit card"
+        tests:
+          - not_null
+      - name: nm_person
+        description: "Name of the person"
+        tests:
+          - not_null
+      - name: modified_date_credit_card
+        description: "Date the credit card was last modified"
+        tests:
+          - not_null
+      - name: date_key_credit_card
+        description: "Date key for the credit card"
+        tests:
+          - not_null
+      - name: modified_date_person_credit_card
+        description: "Date the person credit card was last modified"
+        tests:
+          - not_null
+      - name: date_key_person_credit_card
+        description: "Date key for the person credit card"
+        tests:
+          - not_null
+      - name: modified_date_person
+        description: "Date the person was last modified"
+        tests:
+          - not_null
+      - name: date_key_person
+        description: "Date key for the person"
+        tests:
+          - not_null
