@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: >
+      Sales table Adventure Works.
+    columns:
+      - name: sk_sales
+        description: Primary Key.
+        tests:
+          - unique
+          - not_null

@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: dim_currency_rates
+    description: "Dimension model for currency rates and currencies"
+    columns:
+      - name: pk_currency_rate_id
+        description: "Primary key of the currency rate"
+        tests:
+          - not_null
+          - unique
+      - name: from_currency_code
+        description: "Currency code of the source currency"
+        tests:
+          - not_null
+      - name: to_currency_code
+        description: "Currency code of the target currency"
+        tests:
+          - not_null
+      - name: average_rate
+        description: "Average rate of the currency exchange"
+        tests:
+          - not_null
+      - name: end_day_rate
+        description: "End of day rate of the currency exchange"
+        tests:
+          - not_null
+      - name: modified_date_currency
+        description: "Date the currency was last modified"
+        tests:
+          - not_null
+      - name: date_key_currency
+        description: "Date key for the currency"
+        tests:
+          - not_null
+      - name: modified_date_currency_rate
+        description: "Date the currency rate was last modified"
+        tests:
+          - not_null
+      - name: date_key_currency_rate
+        description: "Date key for the currency rate"
+        tests:
+          - not_null

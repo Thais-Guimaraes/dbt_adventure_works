@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_sales_tax_rates
+    description: "Dimension model for sales tax rates including related state province information"
+    columns:
+      - name: pk_sales_tax_rate_id
+        description: "Composite primary key of the sales tax rate"
+        tests:
+          - not_null
+          - unique

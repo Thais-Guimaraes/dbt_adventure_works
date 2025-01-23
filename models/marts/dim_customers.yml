@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Dimension model for customers and their related information"
+    columns:
+      - name: pk_customer_id
+        description: "Primary key of the customer"
+        tests:
+          - not_null
+          - unique

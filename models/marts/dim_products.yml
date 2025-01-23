@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: "Dimension model for products including category, sub-category, and vendor information"
+    columns:
+      - name: pk_product_id
+        description: "Primary key of the product"
+        tests:
+          - not_null
+          - unique

@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_sales_header_reasons
+    description: "Dimension model for sales header reasons including concatenated reason details"
+    columns:
+      - name: pk_fk_sales_order_id
+        description: "Primary key of the sales order"
+        tests:
+          - not_null
+          - unique

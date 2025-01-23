@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: dim_dates
+    description: >
+      Dates dimension table.
+    columns:
+      - name: date
+        description: Date column format yyyy-mm-dd.
+        tests:
+          - unique
+          - not_null
