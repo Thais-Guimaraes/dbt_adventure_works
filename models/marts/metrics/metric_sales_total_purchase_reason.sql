@@ -1,22 +1,23 @@
-with 
-    sales as (
-        select
-            facts.invoice_number as salesorderid,
-            facts.total_due as totaldue
-        from {{ ref('fact_sales') }} as facts
-    )
-    , sales_reasons as (
-        select
-            dsr.pk_fk_sales_order_id as salesorderid,
-            dsr.concatenated_reason_names as reasonname
-        from {{ ref('dim_sales_reasons') }} as dsr
+WITH 
+    sales AS (
+        SELECT
+            facts.invoice_number AS salesorderid,
+            facts.gross_value AS grossvalue  -- Mudamos para gross_value
+        FROM {{ ref('fact_sales') }} AS facts
+    ),
+    sales_reasons AS (
+        SELECT
+            dsr.pk_fk_sales_order_id AS salesorderid,
+            dsr.concatenated_reason_names AS reasonname,
+            dsr.concatenated_reason_types AS reasontype  -- Adicionamos o tipo de motivo
+        FROM {{ ref('dim_sales_reasons') }} AS dsr
     )
 
-select
-    sr.reasonname as motivocompra
-    , sum(s.totaldue) as valortotalvendas
-from sales s
-join sales_reasons sr
-    on s.salesorderid = sr.salesorderid
-group by sr.reasonname
-order by valortotalvendas desc
+SELECT
+    sr.reasontype AS tipomotivocompra,  -- Agora agrupamos pelo tipo de motivo
+    SUM(s.grossvalue) AS valortotalvendas
+FROM sales s
+JOIN sales_reasons sr
+    ON s.salesorderid = sr.salesorderid
+GROUP BY sr.reasontype  -- Agrupando por tipo de motivo
+ORDER BY valortotalvendas DESC

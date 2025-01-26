@@ -15,13 +15,10 @@ with
         select *
         from {{ ref('stg_erp__addresses') }}
     ),
-
     stores as (
-        select 
-            * 
-        from {{ ref('stg_erp__stores') }} -- Refira-se à tabela que contém as lojas
-    ),    
-    -- Seleciona o endereço mais recente para cada cliente
+        select *
+        from {{ ref('stg_erp__stores') }}
+    ),
     latest_addresses as (
         select
             business_entity_id,
@@ -31,31 +28,35 @@ with
     ),
     joined as (
         select
-            people.pk_fk_business_entity_people_id as fk_person_id_customer
-            , customers.pk_customer_id
-            , customers.fk_territory_id
-            , customers.fk_store_id
-            , stores.nm_store
-            --latest_addresses.latest_address_id
-            , people.nm_person as nm_customer
-            , people.email_promotion
-            , people.total_purchase_YTD
-            , people.date_first_purchase
-            , people.date_birth
-            , people.marital_status
-            , people.yearly_income
-            , people.gender
-            , people.total_children
-            , people.number_children_home
-            , people.education
-            , people.occupation
-            , people.home_owner_flag
-            , people.number_cars_owned
-            , people.commute_distance
-            , customers.modified_date_customer
-            , customers.date_key_customer
-            , people.modified_date_person
-            , people.date_key_person
+            people.pk_fk_business_entity_people_id as fk_person_id_customer,
+            customers.pk_customer_id,
+            customers.fk_territory_id,
+            customers.fk_store_id,
+            -- Aqui substituímos o valor nulo do nome da loja por 'Loja Online' e também criamos um indicador is_online
+            coalesce(stores.nm_store, 'Online') as nm_store,
+            case 
+                when stores.nm_store is null then 1  -- Indicador para loja online
+                else 0  -- Não é loja online
+            end as is_online,
+            people.nm_person as nm_customer,
+            people.email_promotion,
+            people.total_purchase_YTD,
+            people.date_first_purchase,
+            people.date_birth,
+            people.marital_status,
+            people.yearly_income,
+            people.gender,
+            people.total_children,
+            people.number_children_home,
+            people.education,
+            people.occupation,
+            people.home_owner_flag,
+            people.number_cars_owned,
+            people.commute_distance,
+            customers.modified_date_customer,
+            customers.date_key_customer,
+            people.modified_date_person,
+            people.date_key_person
         from people
         join customers on people.pk_fk_business_entity_people_id = customers.fk_person_id_customer
         left join latest_addresses on latest_addresses.business_entity_id = customers.pk_customer_id
