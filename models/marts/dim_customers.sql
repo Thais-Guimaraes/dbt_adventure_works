@@ -32,11 +32,11 @@ with
             customers.pk_customer_id,
             customers.fk_territory_id,
             customers.fk_store_id,
-            -- Aqui substituímos o valor nulo do nome da loja por 'Loja Online' e também criamos um indicador is_online
+            --se for nulo, substitui por Online (sao vendas online)
             coalesce(stores.nm_store, 'Online') as nm_store,
             case 
-                when stores.nm_store is null then 1  -- Indicador para loja online
-                else 0  -- Não é loja online
+                when stores.nm_store is null then 1  
+                else 0  
             end as is_online,
             people.nm_person as nm_customer,
             people.email_promotion,

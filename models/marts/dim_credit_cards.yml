@@ -38,6 +38,6 @@ models:
         tests:
           - not_null
       - name: date_key_person
-        description: "Date key for the person"
+        description: "Date key for the person to establish a connection to dim_dates"
         tests:
           - not_null

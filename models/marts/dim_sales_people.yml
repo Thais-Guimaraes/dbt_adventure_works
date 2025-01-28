@@ -9,3 +9,27 @@ models:
         tests:
           - not_null
           - unique
+      - name: pk_fk_business_entity_people_quotas_id
+        description: "Primary key of the sales person quotas."
+      - name: pk_fk_business_entity_employee_id
+        description: "Primary key of the employee associated with the sales person."
+      - name: pk_fk_business_entity_people_id
+        description: "Primary key of the person entity linked to the sales person."
+      - name: nm_sales_people
+        description: "Name of the sales person."
+      - name: modified_date_sales_person
+        description: "Last modified date of the sales person record."
+      - name: date_key_sales_person
+        description: "Date key associated with the sales person."
+      - name: job_title
+        description: "Job title of the employee linked to the sales person."
+      - name: hire_date
+        description: "Hire date of the employee linked to the sales person."
+      - name: modified_date_employee
+        description: "Last modified date of the employee record."
+      - name: date_key_employee
+        description: "Date key associated with the employee record."
+      - name: modified_date_person
+        description: "Last modified date of the person record."
+      - name: date_key_person
+        description: "Date key associated with the person record."

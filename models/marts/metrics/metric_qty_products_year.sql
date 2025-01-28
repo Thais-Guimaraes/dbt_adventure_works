@@ -18,5 +18,5 @@ JOIN dim_data d
     ON f.order_date = d.date  
 JOIN {{ ref('dim_products') }} p 
     ON f.fk_product_id = p.pk_product_id  
-GROUP BY d.year, f.fk_product_id, p.nm_product  -- Agrupa por ano, ID do produto e nome do produto
-ORDER BY d.year, f.fk_product_id  -- Ordena por ano e ID do produto
+GROUP BY d.year, f.fk_product_id, p.nm_product  
+ORDER BY d.year, f.fk_product_id  

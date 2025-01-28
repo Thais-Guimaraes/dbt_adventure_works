@@ -9,3 +9,57 @@ models:
         tests:
           - not_null
           - unique
+      - name: fk_person_id_customer
+        description: "Foreign key linking the customer to a person"
+        tests:
+          - not_null
+      - name: fk_territory_id
+        description: "Foreign key linking the customer to a sales territory"
+      - name: fk_store_id
+        description: "Foreign key linking the customer to a store"
+      - name: nm_store
+        description: "Name of the store, with 'Online' as a default for null values"
+      - name: is_online
+        description: "Indicator if the store is online (1 for online, 0 otherwise)"
+      - name: nm_customer
+        description: "Name of the customer"
+      - name: email_promotion
+        description: "Indicator of the customer's email promotion preference T/F"
+      - name: total_purchase_YTD
+        description: "Total purchases by the customer year-to-date"
+      - name: date_first_purchase
+        description: "Date of the customer's first purchase"
+      - name: date_birth
+        description: "Date of birth of the customer"
+      - name: marital_status
+        description: "Marital status of the customer"
+      - name: yearly_income
+        description: "Yearly income of the customer"
+      - name: gender
+        description: "Gender of the customer"
+      - name: total_children
+        description: "Total number of children the customer has"
+      - name: number_children_home
+        description: "Number of children living at home with the customer"
+      - name: education
+        description: "Educational level of the customer"
+      - name: occupation
+        description: "Occupation of the customer"
+      - name: home_owner_flag
+        description: "Flag indicating whether the customer is a homeowner"
+      - name: number_cars_owned
+        description: "Number of cars owned by the customer"
+      - name: commute_distance
+        description: "Commute distance of the customer"
+      - name: modified_date_customer
+        description: "Last modification date for the customer"
+      - name: date_key_customer
+        description: "Date key for the customer to connect to dim_dates"
+        tests:
+          - not_null
+      - name: modified_date_person
+        description: "Last modification date for the person"
+      - name: date_key_person
+        description: "Date key for the person to connect to dim_dates"
+        tests:
+          - not_null

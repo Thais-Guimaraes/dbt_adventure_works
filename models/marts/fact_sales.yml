@@ -10,3 +10,65 @@ models:
         tests:
           - unique
           - not_null
+      - name: pk_fk_salesorder_id
+        description: "Primary key of the sales order, linking to the sales order dimension."
+      - name: fk_product_id
+        description: "Foreign key linking the sale to the product dimension (dim_products)."
+      - name: fk_customer_id
+        description: "Foreign key linking the sale to the customer dimension (dim_customers)."
+      - name: fk_sales_person_id
+        description: "Foreign key linking the sale to the sales person dimension (dim_sales_people)."
+      - name: fk_territory_id
+        description: "Foreign key linking the sale to the territory dimension (dim_locations)."
+      - name: fk_bill_address_id
+        description: "Foreign key linking the sale to the billing address dimension (dim_customer)."
+      - name: fk_ship_address_id
+        description: "Foreign key linking the sale to the shipping address dimension (dim_locations)."
+      - name: fk_ship_method_id
+        description: "Foreign key linking the sale to the shipping method dimension"
+      - name: fk_credit_card_id
+        description: "Foreign key linking the sale to the credit card dimension (dim_credit_cards)."
+      - name: fk_currency_rate_id
+        description: "Foreign key linking the sale to the currency rate dimension (dim_currency_rates)."
+      - name: fk_special_offer
+        description: "Foreign key linking the sale to the special offer dimension"
+      - name: order_date
+        description: "Date the sales order was created, linking to the date dimension (dim_dates)."
+      - name: due_date
+        description: "Date the payment for the order is due, linking to the date dimension"
+      - name: ship_date
+        description: "Date the order was shipped, linking to the date dimension"
+      - name: status
+        description: "Status of the sales order."
+      - name: is_online_order
+        description: "Indicator if the order was placed online."
+      - name: purchase_order
+        description: "Purchase order number for the sale."
+      - name: account_number
+        description: "Account number of the customer for the sale."
+      - name: sub_total
+        description: "Subtotal of the order before taxes, freight, and discounts."
+      - name: tax_amt
+        description: "Total tax amount for the order."
+      - name: freight
+        description: "Freight charges for the order."
+      - name: total_due
+        description: "Total amount due for the order."
+      - name: modified_date_sales_order_header
+        description: "Last modified date of the sales order header."
+      - name: date_key_sales_order_header
+        description: "Date key associated with the sales order header, linking to the date dimension (dim_dates)."
+      - name: unit_price_discount
+        description: "Discount applied to the unit price of the product."
+      - name: unit_price
+        description: "Price per unit of the product."
+      - name: order_qty
+        description: "Quantity of the product ordered."
+      - name: weight
+        description: "Weight of the product in the order"
+      - name: hire_date
+        description: "Hire date of the sales person handling the order"
+      - name: line_count
+        description: "Number of lines in the sales order for counting."
+      - name: seniority_years
+        description: "Seniority of the sales person at the time of the order, in years."

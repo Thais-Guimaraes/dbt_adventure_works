@@ -5,10 +5,10 @@ with
         from {{ ref('fact_sales') }}
     )
 select 
-    loc.nm_state_province as regiao  -- nome do estado/província
-    , count(distinct(f.invoice_number)) as quantidadepedidos  -- contagem de pedidos únicos
+    loc.nm_state_province as regiao  
+    , count(distinct(f.invoice_number)) as quantidadepedidos 
 from fact_data f
 join {{ ref('dim_locations') }} loc
-    on f.fk_bill_address_id = loc.pk_address_id  -- junção com a tabela dim_locations
-group by loc.nm_state_province   -- agrupamento apenas pelo nome do estado
+    on f.fk_bill_address_id = loc.pk_address_id  
+group by loc.nm_state_province  
 order by quantidadepedidos desc

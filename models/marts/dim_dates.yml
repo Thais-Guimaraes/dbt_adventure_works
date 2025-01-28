@@ -6,7 +6,55 @@ models:
       Dates dimension table.
     columns:
       - name: date
-        description: Date column format yyyy-mm-dd.
+        description: "Date column in the format yyyy-mm-dd."
         tests:
           - unique
           - not_null
+      - name: year
+        description: "Year extracted from the date."
+      - name: month
+        description: "Numeric month extracted from the date (1-12)."
+      - name: month_name
+        description: "Full name of the month."
+      - name: day
+        description: "Day of the month (1-31)."
+      - name: day_name
+        description: "Full name of the day (e.g., Monday)."
+      - name: quarter
+        description: "Calendar quarter (1-4)."
+      - name: week
+        description: "ISO week number of the year."
+      - name: day_month
+        description: "Day of the month (same as 'day')."
+      - name: day_week
+        description: "Day of the week (1 = Sunday, 7 = Saturday)."
+      - name: day_year
+        description: "Day of the year (1-365 or 1-366 for leap years)."
+      - name: last_day
+        description: "Last day of the month for the given date."
+      - name: last_day_quarter
+        description: "Last day of the quarter for the given date."
+      - name: last_day_year
+        description: "Last day of the year for the given date."
+      - name: last_day_week
+        description: "Last day of the week for the given date."
+      - name: week_year
+        description: "ISO week number of the year."
+      - name: year_week
+        description: "Year corresponding to the ISO week number."
+      - name: year_week_iso
+        description: "ISO year for the given date."
+      - name: week_iso
+        description: "ISO week number of the year."
+      - name: day_week_iso
+        description: "Day of the week in ISO format (1 = Monday, 7 = Sunday)."
+      - name: week_month
+        description: "Week of the month for the given date."
+      - name: first_day_quarter
+        description: "First day of the quarter for the given date."
+      - name: day_quarter
+        description: "Day of the quarter for the given date (1-n)."
+      - name: days_quarter
+        description: "Total number of days in the quarter for the given date."
+      - name: week_quarter
+        description: "Week of the quarter for the given date."

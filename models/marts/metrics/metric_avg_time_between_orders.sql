@@ -1,12 +1,11 @@
--- tempo médio entre os pedidos - nova query
--- consolida os pedidos por cliente e data
+-- tempo médio entre os pedidos para cada cliente
 with 
     pedidos_agrupados as (
         select 
-            fk_customer_id as customer_id -- coluna correspondente ao id do cliente
+            fk_customer_id as customer_id 
             , order_date
-            , min(fk_sales_person_id) as fk_sales_person_id -- exemplo: se precisar de outras colunas (opcional)
-            , count(*) as total_items -- exemplo: para identificar quantas linhas foram agregadas
+            , min(fk_sales_person_id) as fk_sales_person_id 
+            , count(*) as total_items 
         from {{ ref('fact_sales') }}
         group by fk_customer_id, order_date
     )
@@ -16,7 +15,7 @@ with
             , order_date
             , datediff(
             day
-            , lag(order_date) over (partition by customer_id order by order_date)
+            , lag(order_date) over (partition by customer_id order by order_date) -- lag acessa a linha anterior
             , order_date
         ) as days_between_orders
         from pedidos_agrupados

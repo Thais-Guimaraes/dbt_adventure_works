@@ -9,3 +9,17 @@ models:
         tests:
           - not_null
           - unique
+      - name: tax_type
+        description: "Type of tax (e.g., sales tax, value-added tax)."
+      - name: tax_rate
+        description: "Rate of the tax expressed as a percentage."
+      - name: nm_sales_tax_rate
+        description: "Name or description of the sales tax rate."
+      - name: modified_date_tax_rate
+        description: "Last modified date of the sales tax rate record."
+      - name: date_key_tax_rate
+        description: "Date key associated with the sales tax rate record."
+      - name: modified_date_state_province
+        description: "Last modified date of the state or province record."
+      - name: date_key_state_province
+        description: "Date key associated with the state or province record."
