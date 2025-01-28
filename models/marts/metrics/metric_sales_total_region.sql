@@ -2,15 +2,15 @@
 with 
     sales as (
         select
-            facts.invoice_number,
-            facts.fk_bill_address_id, 
-            facts.gross_value -- usando diretamente o gross_value calculado na fact_sales
+            facts.invoice_number
+            , facts.fk_bill_address_id
+            , facts.gross_value 
         from {{ ref('fact_sales') }} as facts
     )
     , locations as (
         select
-            loc.pk_address_id,
-            loc.nm_state_province as regionname
+            loc.pk_address_id
+            , loc.nm_state_province as regionname
         from {{ ref('dim_locations') }} as loc
     )
 

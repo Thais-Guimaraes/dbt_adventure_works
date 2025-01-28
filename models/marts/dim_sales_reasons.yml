@@ -9,3 +9,17 @@ models:
         tests:
           - not_null
           - unique
+      - name: concatenated_reason_ids
+        description: "Concatenated list of sales reason IDs, separated by commas"
+      - name: concatenated_reason_names
+        description: "Concatenated list of sales reason names, separated by commas"
+      - name: concatenated_reason_types
+        description: "Concatenated list of sales reason types, separated by commas"
+      - name: modified_date_sales_header_reason
+        description: "Last modified date for the sales header reason record"
+      - name: date_key_sales_header_reason
+        description: "Date key associated with the sales header reason record."
+      - name: modified_date_sales_reason
+        description: "Last modified date for the sales reason record"
+      - name: date_key_sales_reason
+        description: "Date key associated with the sales reason record"

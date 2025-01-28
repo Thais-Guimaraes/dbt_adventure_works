@@ -1,10 +1,10 @@
--- tempo médio geral entre pedidos
+-- tempo médio de dias entre dois pedidos para cada cliente (média geral)
 with 
     pedidos_agrupados as (
         select 
-            fk_customer_id as customer_id -- coluna correspondente ao id do cliente
+            fk_customer_id as customer_id 
             , order_date
-            , count(*) as total_items -- exemplo: para identificar quantas linhas foram agregadas
+            , count(*) as total_items 
         from {{ ref('fact_sales') }}
         group by fk_customer_id, order_date
     )
